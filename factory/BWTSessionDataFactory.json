@@ -1,0 +1,9 @@
+{
+	"name": "BWTSessionDataFactory",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "df8039c1-539f-4651-9372-75b61fcae0a1",
+		"tenantId": "d3a4d76e-e51f-4bba-8421-cdc671a0ac81"
+	}
+}
