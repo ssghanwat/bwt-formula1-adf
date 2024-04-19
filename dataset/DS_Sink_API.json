@@ -1,0 +1,23 @@
+{
+	"name": "DS_Sink_API",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLSGEN2_Storage_Account",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "season.json",
+				"fileSystem": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "",
+			"firstRowAsHeader": false,
+			"quoteChar": ""
+		},
+		"schema": []
+	}
+}

@@ -1,0 +1,38 @@
+{
+	"name": "PL_Conditional_Split_Activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Conditional_Split_Transformation",
+				"description": "this dataflow split the employee csv file department wise",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "Conditional_Split_Transformation",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"folder": {
+			"name": "Youtube Lecture Practice"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-03-29T05:34:27Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

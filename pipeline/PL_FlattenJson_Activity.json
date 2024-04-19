@@ -1,0 +1,37 @@
+{
+	"name": "PL_FlattenJson_Activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "FlattenJson",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "Flatten_json_transformation",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"folder": {
+			"name": "Youtube Lecture Practice"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-03-28T13:10:44Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

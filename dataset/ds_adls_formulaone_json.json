@@ -1,0 +1,31 @@
+{
+	"name": "ds_adls_formulaone_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_FormulaoneProject_ADLSGEN2",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"file_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().file_name",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@concat('bronze/season/', string(utcNow('yyyyMMdd')))",
+					"type": "Expression"
+				},
+				"fileSystem": "adfformulaone"
+			}
+		},
+		"schema": {}
+	}
+}

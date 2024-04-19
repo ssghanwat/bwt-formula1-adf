@@ -1,0 +1,53 @@
+{
+	"name": "PL_Filter_Activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Filter_list",
+				"type": "Filter",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('ListOfStrings')",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@contains(item(),'Data')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"ListOfStrings": {
+				"type": "array",
+				"defaultValue": [
+					"DataEngg",
+					"Data Analyst",
+					"Developer",
+					"Team Leader",
+					"Manager"
+				]
+			}
+		},
+		"variables": {
+			"ListOfStrings": {
+				"type": "Array",
+				"defaultValue": [
+					"DataEngg",
+					"Data Analyst",
+					"Developer",
+					"Team Leader",
+					"Manager"
+				]
+			}
+		},
+		"folder": {
+			"name": "Youtube Lecture Practice"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-03-28T10:52:23Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
