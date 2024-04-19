@@ -5,11 +5,15 @@
 			{
 				"name": "act_copy_season_data_to_adlsgen2",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "act_lookup_insert_metadata_entry",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "act_set_start_time",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -67,8 +71,6 @@
 			{
 				"name": "act_lookup_season_api",
 				"type": "Lookup",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "act_copy_season_data_to_adlsgen2",
@@ -118,8 +120,6 @@
 			{
 				"name": "act_iterating_over_season",
 				"type": "ForEach",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "act_lookup_season_api",
@@ -294,8 +294,6 @@
 			{
 				"name": "act_set_start_time",
 				"type": "SetVariable",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"secureOutput": false,
