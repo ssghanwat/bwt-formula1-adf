@@ -1,0 +1,12 @@
+{
+	"name": "LS_WebAPI",
+	"properties": {
+		"annotations": [],
+		"type": "WebConnection",
+		"typeProperties": {
+			"url": "http://ergast.com/api/f1/",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
