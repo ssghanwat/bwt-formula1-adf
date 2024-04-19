@@ -1,0 +1,69 @@
+{
+	"name": "PL_Season_API_Ingest",
+	"properties": {
+		"activities": [
+			{
+				"name": "act_copy_data_season_api_to_adlsgen2",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "HttpReadSettings",
+							"requestMethod": "GET"
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_http_api",
+						"type": "DatasetReference",
+						"parameters": {
+							"relative_url": "seasons.json?limit=100"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_adls_formulaone_json",
+						"type": "DatasetReference",
+						"parameters": {
+							"file_name": "season.json"
+						}
+					}
+				]
+			}
+		],
+		"variables": {
+			"season year": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "FormulaOne Project/Ingest pipeline"
+		},
+		"annotations": []
+	}
+}

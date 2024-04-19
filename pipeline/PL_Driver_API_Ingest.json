@@ -1,0 +1,68 @@
+{
+	"name": "PL_Driver_API_Ingest",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "HttpReadSettings",
+							"requestMethod": "GET"
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_http_api",
+						"type": "DatasetReference",
+						"parameters": {
+							"relative_url": "drivers.json?limit=1000"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_result_adlsgen2",
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": "driver",
+							"DirectoryPath": {
+								"value": "@concat('bronze/driver/',string(utcNow('yyyyMMdd')))",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "FormulaOne Project/Ingest pipeline"
+		},
+		"annotations": []
+	}
+}

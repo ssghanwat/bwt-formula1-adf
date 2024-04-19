@@ -1,0 +1,108 @@
+{
+	"name": "PL_Copy_Multiple_files",
+	"properties": {
+		"activities": [
+			{
+				"name": "Iterating_on_FileName",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('FileName')",
+						"type": "Expression"
+					},
+					"isSequential": false,
+					"activities": [
+						{
+							"name": "Copy_Files",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "DelimitedTextSource",
+									"storeSettings": {
+										"type": "AzureBlobStorageReadSettings",
+										"recursive": true,
+										"enablePartitionDiscovery": false
+									},
+									"formatSettings": {
+										"type": "DelimitedTextReadSettings"
+									}
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobStorageWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".csv"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "DS_Source_blob",
+									"type": "DatasetReference",
+									"parameters": {
+										"FileName": {
+											"value": "@item().FileName",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DS_Sink_File",
+									"type": "DatasetReference"
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"FileName": {
+				"type": "Array",
+				"defaultValue": [
+					{
+						"FileName": "dept_data.csv"
+					},
+					{
+						"FileName": "emp_data.csv"
+					},
+					{
+						"FileName": "student_data.csv"
+					}
+				]
+			}
+		},
+		"folder": {
+			"name": "Youtube Lecture Practice"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-03-28T10:52:23Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
