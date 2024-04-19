@@ -1,0 +1,26 @@
+{
+	"name": "DS_Sink_File",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Blob_Storage_Account",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Youtube Lecture Practice"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "output"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,45 @@
+{
+	"name": "DS_StudentJson_Blob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Blob_Storage_Account",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Youtube Lecture Practice"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "student_dat.json",
+				"container": "input"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "integer"
+				},
+				"name": {
+					"type": "string"
+				},
+				"age": {
+					"type": "integer"
+				},
+				"grade": {
+					"type": "string"
+				},
+				"courses": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

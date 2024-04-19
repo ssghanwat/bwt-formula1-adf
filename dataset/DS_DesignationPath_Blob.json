@@ -1,0 +1,35 @@
+{
+	"name": "DS_DesignationPath_Blob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Blob_Storage_Account",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Youtube Lecture Practice"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "output"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "dept_name",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

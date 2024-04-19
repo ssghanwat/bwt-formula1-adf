@@ -1,0 +1,36 @@
+{
+	"name": "DS_Dept_CSV_Source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Blob_Storage_Account",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Youtube Lecture Practice"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "dept_data.csv",
+				"container": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "DEPARTMENT_ID",
+				"type": "String"
+			},
+			{
+				"name": "DeptName",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
