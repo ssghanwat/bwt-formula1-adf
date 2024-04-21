@@ -1,10 +1,6 @@
 {
 	"name": "DS_Dept_CSV_Sink",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "LS_Blob_Storage_Account",
-			"type": "LinkedServiceReference"
-		},
 		"parameters": {
 			"ContainerNameInDataset": {
 				"type": "string"

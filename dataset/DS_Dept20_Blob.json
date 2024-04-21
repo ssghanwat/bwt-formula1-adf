@@ -1,10 +1,6 @@
 {
 	"name": "DS_Dept20_Blob",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "LS_Blob_Storage_Account",
-			"type": "LinkedServiceReference"
-		},
 		"folder": {
 			"name": "Youtube Lecture Practice"
 		},

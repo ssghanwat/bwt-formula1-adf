@@ -1,10 +1,6 @@
 {
 	"name": "DS_Source_blob",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "LS_Blob_Storage_Account",
-			"type": "LinkedServiceReference"
-		},
 		"parameters": {
 			"FileName": {
 				"type": "string"
