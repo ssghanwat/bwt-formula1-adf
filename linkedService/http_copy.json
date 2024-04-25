@@ -1,0 +1,12 @@
+{
+	"name": "http_copy",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "http://ergast.com/api/f1/2008/5/",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
