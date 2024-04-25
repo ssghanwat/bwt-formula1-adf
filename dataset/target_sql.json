@@ -1,0 +1,16 @@
+{
+	"name": "target_sql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sql_link",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "drivers"
+		}
+	}
+}
